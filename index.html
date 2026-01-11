@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - EasyFolio Bootstrap Template</title>
+  <title>Samay Powade</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -351,6 +351,236 @@
     .certification-card-img:hover .cert-thumbnail {
       transform: scale(1.05);
     }
+
+    /* Resume/CV Download Section Styles - Compact Design */
+    .resume-download-section {
+      padding: 1rem 0;
+    }
+
+    .download-buttons-wrapper {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255, 255, 255, 0.5);
+      border-radius: 50px;
+      padding: 0.65rem 1.25rem;
+      text-decoration: none;
+      color: #000000;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .download-btn i:first-child {
+      font-size: 1.1rem;
+      color: #e87532;
+    }
+
+    .download-btn i:last-child {
+      font-size: 0.9rem;
+      color: #666666;
+    }
+
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.5);
+      border-color: rgba(232, 117, 50, 0.6);
+      color: #000000;
+    }
+
+    .download-btn:hover i:first-child {
+      color: #e87532;
+      transform: scale(1.1);
+    }
+
+    .download-btn:hover i:last-child {
+      color: #e87532;
+    }
+
+
+
+    /* --- Add to the bottom of assets/css/main.css --- */
+
+    /* Wrapper to hold Text and Image side-by-side */
+    .education-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    /* Ensure text takes up available space */
+    .education-text {
+      flex: 1;
+    }
+
+    /* Mark Sheet Thumbnail Container */
+    .education-img {
+      flex-shrink: 0;
+      width: 150px;
+      /* Adjust size as needed */
+      height: auto;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .education-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* Hover Effect */
+    .education-img:hover {
+      transform: scale(1.05);
+    }
+
+    .education-img:hover img {
+      transform: scale(1.1);
+    }
+
+    /* "View" Overlay on Hover */
+    .education-img::after {
+      content: '\F338';
+      /* Bootstrap Icon Eye Code */
+      font-family: "bootstrap-icons";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .education-img:hover::after {
+      opacity: 1;
+    }
+
+    /* Mobile Responsiveness: Stack them vertically on small screens */
+    @media (max-width: 576px) {
+      .education-content {
+        flex-direction: column;
+      }
+
+      .education-img {
+        width: 100%;
+        height: 150px;
+        /* Taller on mobile */
+        margin-top: 10px;
+      }
+    }
+
+    /* Add this to main.css if you want extra vertical breathing room on mobile */
+    .portfolio-card {
+      margin-bottom: 20px;
+      /* Ensures gap on mobile when they stack */
+    }
+
+
+    /* --- Fix for Marksheet/Certificate Modal Display --- */
+
+    /* 1. The Modal Background (Overlay) */
+    #certificateModal {
+      /* Ensure it covers the whole screen */
+      padding-top: 0 !important;
+      /* Remove top padding so we can center vertically */
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      /* Prevent double scrollbars */
+      background-color: rgba(0, 0, 0, 0.9) !important;
+      /* Darker background for focus */
+      backdrop-filter: blur(8px);
+    }
+
+    /* 2. The Image Itself */
+    #certificateModal .modal-content {
+      /* Reset fixed width causing distortion */
+      width: auto !important;
+      height: auto !important;
+
+      /* Constraints to keep it inside the screen */
+      max-width: 90vw !important;
+      /* Max 90% of viewport width */
+      max-height: 90vh !important;
+      /* Max 90% of viewport height */
+
+      /* Perfect Centering Technique */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      /* Visuals */
+      margin: 0 !important;
+      object-fit: contain;
+      /* Ensures the image is never squashed */
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: zoom 0.3s ease-out;
+      /* Smoother animation */
+    }
+
+    /* 3. Improve Close Button Visibility */
+    #certificateModal .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      opacity: 0.8;
+      z-index: 10000;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #certificateModal .close:hover {
+      color: var(--accent-color);
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    /* Animation Keyframes */
+    @keyframes zoom {
+      from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
   </style>
 
 </head>
@@ -420,7 +650,7 @@
           </div>
           <div class="col-lg-5" data-aos="fade-up">
             <div class="hero-image">
-              <img src="assets/img/person/My new.jpeg" alt="Samay Powade" class="img-fluid rounded-4">
+              <img src="assets/img/person/actual image.png" alt="Samay Powade" class="img-fluid rounded-4">
             </div>
           </div>
         </div>
@@ -428,10 +658,8 @@
       </div>
     </section><!-- /Hero Section -->
 
-    <!-- About Section -->
     <section id="about" class="about section light-background">
 
-      <!-- Section Title -->
       <div class="container section-title">
         <h2 id="work">About</h2>
         <div class="title-shape">
@@ -440,85 +668,80 @@
               stroke-width="2"></path>
           </svg>
         </div>
-        <p>I am an aspiring AI Engineer with a strong interest in applied Machine Learning and AI system development. I
-          have hands-on experience using Python to build and deploy ML models and AI-powered applications, including
-          conversational assistants, emotional wellness platforms, and women safety solutions. I focus on practical
-          implementation, model deployment, and real-world problem solving rather than only theoretical learning.</p>
-      </div><!-- End Section Title -->
-
+        <p>Passionate about bridging the gap between theoretical AI concepts and real-world deployable systems.</p>
+      </div>
       <div class="container" data-aos="fade-up">
 
         <div class="row align-items-center">
-          <div class="col-lg-6 position-relative" data-aos="fade-right">
+          <div class="col-lg-5 position-relative" data-aos="fade-right">
             <div class="about-image">
-              <img src="/assets/img/person/My new.jpeg" alt="Profile Image" class="img-fluid rounded-4">
+              <img src="assets/img/person/My new.jpeg" alt="Samay Powade" class="img-fluid rounded-4">
             </div>
           </div>
 
-          <div class="col-lg-6" data-aos="fade-left">
-            <div class="about-content">
-              <span class="subtitle">About Me</span>
-
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="about-content ps-0 ps-lg-5"> <span class="subtitle">Who I Am</span>
               <h2>AI Engineer &amp; Data Scientist</h2>
 
-              <p class="lead mb-4">AI Engineer & Data Scientist | Specializing in AI, ML, NLP & Data Analytics |
-                Creating innovative & data-driven solutions.</p>
-
-
-              <div class="personal-info">
-                <div class="row g-4">
-                  <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Name</span>
-                      <span class="value">Samay Powade</span>
-                    </div>
-                  </div>
-
-                  <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Phone</span>
-                      <span class="value">+91 9764096358</span>
-                    </div>
-                  </div>
-
-                  <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Age</span>
-                      <span class="value">19 Years</span>
-                    </div>
-                  </div>
-
-                  <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Email</span>
-                      <span class="value">samaypowade23@gmial.com</span>
-                    </div>
-                  </div>
-
-                  <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Occupation</span>
-                      <span class="value">Data Scientist</span>
-                    </div>
-                  </div>
-
-                  <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Nationality</span>
-                      <span class="value">Indian</span>
-                    </div>
-                  </div>
-                </div>
+              <div class="personal-info bio-container">
+                <p>
+                  Hello! I’m <strong>Samay</strong>, a 3rd-year B.Tech student with a background in Computer Science
+                  (Diploma), and a passionate and dedicated <strong>Machine Learning & AI Engineer</strong>. I have a
+                  strong interest in building real-world, deployable AI systems. My expertise spans Python, Machine
+                  Learning, Data Analytics, and MLOps, with hands-on experience in developing end-to-end AI applications
+                  and pipelines.
+                </p>
+                <p>
+                  I am currently honing my skills through innovative projects, where I apply advanced ML techniques,
+                  build robust pipelines, and deploy production-ready systems accessible via APIs and web interfaces.
+                  These experiences have strengthened my understanding of algorithms, data processing, and software
+                  engineering in real-world scenarios.
+                </p>
+                <p>
+                  Beyond academics and projects, I actively engage with emerging technologies, experiment with AI tools,
+                  and contribute to practical solutions that have a tangible impact. I enjoy participating in
+                  hackathons, collaborating on projects, and staying up-to-date with the latest trends in AI, deep
+                  learning, and data science.
+                </p>
+                <p class="mb-0">
+                  Feel free to explore my portfolio and projects to see the work I’ve done. I’m always open to
+                  collaboration, mentorship, or discussing exciting AI opportunities. <strong>Don’t hesitate to reach
+                    out!</strong>
+                </p>
               </div>
 
               <div class="signature mt-4">
-                <div class="signature-image">
-                  <!-- <img src="assets/img/misc/signature-1.webp" alt="" class="img-fluid"> -->
-                </div>
                 <div class="signature-info">
                   <h4>Samay Powade</h4>
                   <p>Maharashtra, India</p>
                 </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Resume/CV Download Section -->
+        <div class="row mt-4" data-aos="fade-up">
+          <div class="col-12">
+            <div class="resume-download-section text-center">
+              <h5 class="mb-3" style="color: #000000; font-weight: 600; font-size: 1.1rem;">Download Documents</h5>
+              <div class="download-buttons-wrapper">
+
+                <!-- Resume Button -->
+                <a href="/assets/pdf/samay.pdf" download="Samay_Powade_Resume.pdf" class="download-btn">
+                  <i class="bi bi-file-earmark-text"></i>
+                  <span>Resume</span>
+                  <i class="bi bi-download"></i>
+                </a>
+
+                <!-- CV Button -->
+                <a href="/assets/pdf/samay.pdf" download="Samay_Powade_CV.pdf" class="download-btn">
+                  <i class="bi bi-file-earmark-person"></i>
+                  <span>Curriculum Vitae</span>
+                  <i class="bi bi-download"></i>
+                </a>
+
               </div>
             </div>
           </div>
@@ -526,8 +749,7 @@
 
       </div>
 
-    </section><!-- /About Section -->
-
+    </section>
     <section id="skills" class="skills section">
 
       <div class="container section-title" data-aos="fade-up">
@@ -546,7 +768,7 @@
           <div class="col-lg-12">
 
             <div class="tech-category-box" data-aos="fade-up">
-              <h3 class="category-title"><i class="bi bi-cpu-fill"></i> AI / ML / Data Science</h3>
+              <h3 class="category-title"> AI / ML / Data Science</h3>
               <div class="tech-grid">
                 <div class="tech-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
                 <div class="tech-item"><i class="devicon-pytorch-original colored"></i><span>PyTorch</span></div>
@@ -561,7 +783,7 @@
             </div>
 
             <div class="tech-category-box" data-aos="fade-up">
-              <h3 class="category-title"><i class="bi bi-robot"></i> Generative AI & NLP</h3>
+              <h3 class="category-title">Generative AI & NLP</h3>
               <div class="tech-grid">
                 <div class="tech-item"><i class="fa-solid fa-brain" style="color: #8A2BE2;"></i><span>Gen AI</span>
                 </div>
@@ -579,7 +801,7 @@
             </div>
 
             <div class="tech-category-box" data-aos="fade-up">
-              <h3 class="category-title"><i class="bi bi-hdd-rack-fill"></i> Backend & APIs</h3>
+              <h3 class="category-title">Backend & APIs</h3>
               <div class="tech-grid">
                 <div class="tech-item"><i class="devicon-fastapi-plain colored"></i><span>FastAPI</span></div>
                 <div class="tech-item"><i class="devicon-flask-original colored"></i><span>Flask</span></div>
@@ -589,7 +811,7 @@
             </div>
 
             <div class="tech-category-box" data-aos="fade-up">
-              <h3 class="category-title"><i class="bi bi-phone-fill"></i> Frontend & Mobile</h3>
+              <h3 class="category-title"> Frontend & Mobile</h3>
               <div class="tech-grid">
                 <div class="tech-item"><i class="devicon-react-original colored"></i><span>React</span></div>
                 <div class="tech-item"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
@@ -600,7 +822,7 @@
             </div>
 
             <div class="tech-category-box" data-aos="fade-up">
-              <h3 class="category-title"><i class="bi bi-server"></i> Database & DevOps</h3>
+              <h3 class="category-title"> Database & DevOps</h3>
               <div class="tech-grid">
                 <div class="tech-item"><i class="devicon-mysql-original colored"></i><span>MySQL</span></div>
                 <div class="tech-item"><i class="devicon-mongodb-plain colored"></i><span>MongoDB</span></div>
@@ -617,10 +839,8 @@
       </div>
 
     </section>
-    <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
 
-      <!-- Section Title -->
       <div class="container section-title">
         <h2>Projects</h2>
         <div class="title-shape">
@@ -629,190 +849,184 @@
               stroke-width="2"></path>
           </svg>
         </div>
-        <p>A collection of my work in Data Science, Machine Learning, Software Development, featuring projects that
-          highlight my technical skills and real-world problem-solving abilities.</p>
-      </div><!-- End Section Title -->
-
+        <p>A collection of my work in Data Science, Machine Learning, AI Engineering, and Full Stack Software
+          Development, featuring projects that highlight my technical skills and real-world problem-solving abilities
+        </p>
+      </div>
       <div class="container" data-aos="fade-up">
 
         <div class="container" data-aos="fade-up">
 
           <div class="row g-4 justify-content-center">
 
-            <!-- Project 1: Shakti AI Chatbot -->
-
-
-
-
-            <!-- Project 3: ChetanaLabs -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="chetanalabs">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/chetanalabs.png" class="img-fluid" alt="ChetanaLabs" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/chetanalabs.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="chetanalabs">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">Voice AI / HR Tech</span>
                   <h3>ChetanaLabs</h3>
                   <p>AI-powered HR voice assistant automating candidate screening, calling workflows, and interview
                     scheduling.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/portfolio/chetanalabs.png" class="img-fluid" alt="ChetanaLabs"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
-            <!-- Project 2: Sarathi Astra -->
+
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="sarathi-astra">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/sarathi_astra.png" class="img-fluid" alt="Sarathi Astra"
-                    loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/sarathi_astra.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="sarathi-astra">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">RAG / Document Intelligence</span>
                   <h3>Sarathi Astra</h3>
                   <p>An advanced NotebookLM-style RAG system for document intelligence. Allows users to interact with
                     PDFs and docs through contextual Q&A.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/portfolio/sarathi_astra.png" class="img-fluid" alt="Sarathi Astra"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
+
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="trinetra-drone">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/trinetra_drone.png" class="img-fluid" alt="Trinetra Drone"
-                    loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/trinetra_drone.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="trinetra-drone">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">Drone Tech / Surveillance</span>
                   <h3>Trinetra System</h3>
                   <p>End-to-end AI-enabled drone ecosystem with real-time telemetry, live video streaming, and object
                     detection.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/portfolio/trinetra_drone.png" class="img-fluid" alt="Trinetra Drone"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
-            <!-- Project 4: Dream Weaver -->
+
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="dream-weaver">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/dream_weaver.png" class="img-fluid" alt="Dream Weaver" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/dream_weaver.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="dream-weaver">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">Generative AI / Creative</span>
                   <h3>Dream Weaver</h3>
                   <p>A creative AI system for idea generation and storytelling, combining structured memory with LLM
                     reasoning.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/portfolio/dream_weaver.png" class="img-fluid" alt="Dream Weaver"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
+
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="shakti-chatbot">
-                <div class="portfolio-image">
-                  <img src="assets/img/portfolio/womens_safety_ai.png" class="img-fluid" alt="Shakti AI Chatbot"
-                    loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/womens_safety_ai.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="shakti-chatbot">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">AI Companion / Mental Health</span>
                   <h3>Shakti AI Chatbot</h3>
                   <p>Personal AI companion providing empathetic support, mental health assistance, and multilingual
                     conversations.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/portfolio/womens_safety_ai.png" class="img-fluid" alt="Shakti AI Chatbot"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
 
-
-            <!-- Project 5: Trinetra Drone App -->
-
-
-            <!-- Project 6: Cold Email Generator -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="cold-email-generator">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/coldemail.png" class="img-fluid" alt="Cold Email Generator"
-                    loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/coldemail.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="cold-email-generator">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">AI / Productivity</span>
                   <h3>Cold Email Generator</h3>
                   <p>💌 AI-powered tool that crafts personalized, compelling cold emails in seconds for sales,
                     marketing, and outreach.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/projects/coldemail.png" class="img-fluid" alt="Cold Email Generator"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
 
-            <!-- Project 7: Hotel Booking Analysis -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="hotel-booking-analysis">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/Hotel.png" class="img-fluid" alt="Hotel Booking Analysis"
-                    loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/Hotel.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="hotel-booking-analysis">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">Data Science / Analytics</span>
                   <h3>Hotel Booking Data Analysis</h3>
                   <p>Comprehensive analysis of hotel booking data to uncover customer behavior, trends, and cancellation
                     patterns.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/projects/Hotel.png" class="img-fluid" alt="Hotel Booking Analysis"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
 
-            <!-- Project 8: Movie Recommendation System -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up">
-              <div class="portfolio-card h-100" data-project-id="movie-recommendation">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/movie.png" class="img-fluid" alt="Movie Recommendation System"
-                    loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/movie.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-app"><i class="bi bi-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="movie-recommendation">
+
+                <div class="portfolio-content flex-grow-1">
                   <span class="category">Machine Learning / Recommendation</span>
                   <h3>Movie Recommendation System</h3>
                   <p>🎬 Personalized movie recommendation system using ML techniques, content-based and collaborative
                     filtering.</p>
                 </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/projects/movie.png" class="img-fluid" alt="Movie Recommendation System"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+              <div class="portfolio-card h-100 d-flex flex-column" data-project-id="loan-prediction">
+
+                <div class="portfolio-content flex-grow-1">
+                  <span class="category">Machine Learning / MLOps</span>
+                  <h3>Loan Prediction System</h3>
+                  <p>End-to-end deployed ML pipeline using Docker, FastAPI, and Hugging Face to predict loan eligibility
+                    using Random Forest.</p>
+                </div>
+
+                <div class="portfolio-image mt-auto mx-auto mb-4"
+                  style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
+                  <img src="assets/img/projects/loan_prediction.png" class="img-fluid" alt="Loan Prediction System"
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                </div>
+
               </div>
             </div>
 
@@ -822,23 +1036,13 @@
 
       </div>
 
-    </section><!-- /Portfolio Section -->
+    </section>
 
 
     <!-- Resume Section -->
     <section id="resume" class="resume section">
 
       <!-- Section Title -->
-      <div class="container section-title">
-        <h2>Resume</h2>
-        <div class="title-shape">
-          <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor"
-              stroke-width="2"></path>
-          </svg>
-        </div>
-        <p><a href="/assets/pdf/samay.pdf" class="btn btn-primary" id="button1" target="_blank">See My Resume</a></p>
-      </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up">
 
@@ -942,10 +1146,10 @@
               <div class="resume-block" data-aos="fade-up">
                 <h2>My Education</h2>
                 <p class="lead">My education in Computer Science provided a strong foundation in programming,
-                  algorithms, data structures, and problem-solving, preparing me to tackle real-world challenges in
-                  technology and innovation.</p>
+                  algorithms, data structures, and problem-solving.</p>
 
                 <div class="timeline">
+
                   <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-left">
                       <h4 class="company">Maharashtra State Board</h4>
@@ -953,9 +1157,19 @@
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">Secondary School Certificate (SSC)</h3>
-                      <p class="description">Completed foundational education with strong knowledge in Mathematics,
-                        Science, and English, providing a solid academic base for further studies.</p>
+
+                      <div class="education-content">
+                        <div class="education-text">
+                          <h3 class="position">Secondary School Certificate (SSC)</h3>
+                          <p class="description">Completed foundational education with strong knowledge in Mathematics,
+                            Science, and English, providing a solid academic base for further studies.</p>
+                        </div>
+
+                        <div class="education-img" onclick="openModal('assets/img/marksheet/SSC.jpeg')">
+                          <img src="assets/img/marksheet/SSC.jpeg" alt="SSC Marksheet">
+                        </div>
+                      </div>
+
                     </div>
                   </div>
 
@@ -966,10 +1180,20 @@
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">Diploma in Computer Engineering</h3>
-                      <p class="description">A comprehensive program covering programming, computer hardware, software
-                        development, and system design, providing hands-on experience and technical skills essential for
-                        a career in computer engineering.</p>
+
+                      <div class="education-content">
+                        <div class="education-text">
+                          <h3 class="position">Diploma in Computer Engineering</h3>
+                          <p class="description">A comprehensive program covering programming, computer hardware,
+                            software
+                            development, and system design, providing hands-on experience and technical skills.</p>
+                        </div>
+
+                        <div class="education-img" onclick="openModal('assets/img/marksheet/Diploma.jpeg')">
+                          <img src="assets/img/marksheet/Diploma.jpeg" alt="Diploma Marksheet">
+                        </div>
+                      </div>
+
                     </div>
                   </div>
 
@@ -980,12 +1204,22 @@
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
-                      <h3 class="position">B-Tech In Computer Engineering (Currently Pursuing)</h3>
-                      <p class="description">A degree program focused on advanced computer science concepts, including
-                        software development, algorithms, networking, and system architecture, providing in-depth
-                        knowledge and skills for building innovative technology solutions.</p>
+
+                      <div class="education-content">
+                        <div class="education-text">
+                          <h3 class="position">B-Tech In Computer Engineering (Pursuing)</h3>
+                          <p class="description">Focused on advanced computer science concepts, including software
+                            development, algorithms, networking, and system architecture.</p>
+                        </div>
+
+                        <!-- <div class="education-img" onclick="openModal('assets/img/education/btech-id.jpg')">
+                          <img src="assets/img/education/btech-id.jpg" alt="College Doc">
+                        </div> -->
+                      </div>
+
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>

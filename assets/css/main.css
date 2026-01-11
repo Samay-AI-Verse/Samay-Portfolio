@@ -121,6 +121,48 @@ section,
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
+/* Portfolio Section - Compact Layout */
+.portfolio-card {
+  padding: 0.85rem !important;
+  cursor: pointer;
+}
+
+.portfolio-content {
+  padding-bottom: 0.4rem;
+}
+
+.portfolio-content .category {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #e87532;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.portfolio-content h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: #000000;
+  line-height: 1.2;
+}
+
+.portfolio-content p {
+  font-size: 0.75rem;
+  line-height: 1.35;
+  color: #333333;
+  margin-bottom: 0;
+}
+
+.portfolio-image {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+
+
 .service-item {
   background: rgba(255, 255, 255, 0.12) !important;
   backdrop-filter: blur(12px);
@@ -209,15 +251,13 @@ section,
 /* Hero section enhancements */
 .hero-image {
   position: relative;
-  max-height: 400px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .hero-image img {
   width: 100%;
   height: auto;
-  max-height: 400px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
@@ -1175,8 +1215,9 @@ section,
 }
 
 .about .signature .signature-info h4 {
-  font-size: 1.25rem;
+  font-size: 1.40rem;
   margin-bottom: 0.25rem;
+  color: #000000;
 }
 
 .about .signature .signature-info p {
@@ -2734,7 +2775,7 @@ body::before {
 
 /* Category Title */
 .category-title {
-  color: var(--heading-color);
+  color: wheat;
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
@@ -2745,7 +2786,7 @@ body::before {
 }
 
 .category-title i {
-  color: var(--accent-color);
+  color: wheat;
   font-size: 1.3rem;
 }
 
@@ -3398,4 +3439,451 @@ body::before {
   /* ADD THIS - limits single image width */
   width: 80%;
   /* ADD THIS - makes it 80% of container width */
+}
+
+
+.bio-container p {
+  color: #000000 !important;
+  /* Force solid black text */
+  margin-bottom: 1rem;
+  /* Space between paragraphs */
+  line-height: 1.8;
+  /* Better readability */
+  font-size: 1.05rem;
+  text-shadow: none !important;
+}
+
+.bio-container strong {
+  color: var(--accent-color);
+  /* Highlights key words in your orange/brand color */
+  font-weight: 700;
+}
+
+/* Adjust the about image size if it feels too big next to text */
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  /* Limits width so it doesn't look huge */
+  margin: 0 auto;
+  display: block;
+}
+
+/* --- Add to bottom of main.css --- */
+
+/* Make the Glass Box smaller and more compact */
+.about .personal-info {
+  padding: 1.25rem !important;
+  /* Reduced from 2rem to 1.25rem */
+  border-radius: 12px !important;
+  /* Slightly smaller corner radius */
+  margin-top: 1rem !important;
+  /* Less space above the box */
+}
+
+/* Make the Text smaller and tighter */
+.bio-container p {
+  color: #000000 !important;
+  font-size: 1rem !important;
+  /* Smaller font (approx 14px) */
+  line-height: 1.6 !important;
+  /* Tighter spacing between lines */
+  margin-bottom: 0.8rem !important;
+  /* Less space between paragraphs */
+  text-shadow: none !important;
+}
+
+/* Style the bold words */
+.bio-container strong {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  font-size: 0.9rem !important;
+  /* Match the paragraph size */
+}
+
+/* Optional: If the box is still too wide, uncomment the line below */
+/* .about .personal-info {
+    max-width: 90%; 
+} 
+*/
+
+
+
+/* =========================================
+   1. IMPROVED TECH STACK DESIGN
+   ========================================= */
+
+/* The Container Box */
+.tech-category-box {
+  background: rgba(255, 255, 255, 0.03) !important;
+  /* Lighter/Cleaner glass */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.tech-category-box:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: var(--accent-color);
+  /* Orange highlight on hover */
+  transform: translateY(-5px);
+}
+
+.category-title {
+  color: #ffffff !important;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  border-bottom: 2px solid var(--accent-color);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* The Tech Grid */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Individual Tech Pill - Direct & Effective Look */
+.tech-item {
+  background: #ffffff;
+  /* Solid white for high contrast */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  /* Slightly squarer looks more tech-focused than round pills */
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tech-item i {
+  font-size: 1.2rem;
+}
+
+.tech-item span {
+  font-weight: 600;
+  color: #000000 !important;
+  font-size: 0.95rem;
+}
+
+/* Hover Effect for Tech Items */
+.tech-item:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(232, 117, 50, 0.2);
+  /* Orange glow */
+}
+
+/* =========================================
+   2. NEW PROJECT MODAL DESIGN
+   ========================================= */
+
+/* Modal Backdrop */
+#projectModal {
+  background: rgba(0, 0, 0, 0.85);
+  /* Darker background for focus */
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Modal Container - Wider and Cleaner */
+.modal-container {
+  background: #ffffff;
+  /* Solid white for readability */
+  width: 90%;
+  max-width: 1000px;
+  /* Much wider */
+  max-height: 90vh;
+  border-radius: 20px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  padding: 0;
+}
+
+/* Modal Content Wrapper */
+#modalProjectContent {
+  padding: 40px;
+}
+
+/* 1. Header Section */
+.modal-top-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.modal-badge {
+  background: rgba(232, 117, 50, 0.1);
+  color: #e87532;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.modal-top-header h2 {
+  font-size: 2.5rem;
+  color: #000;
+  margin: 15px 0 10px;
+  font-weight: 800;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #555;
+  font-style: italic;
+}
+
+/* 2. Hero Image - LARGE */
+.modal-hero-image {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Removed max-width restriction! */
+}
+
+/* Bottom Image - SMALLER */
+.modal-bottom-image {
+  width: 100%;
+  max-width: 500px;
+  margin: 30px auto 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.modal-bottom-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* 3. Layout: Main (Left) + Sidebar (Right) */
+.modal-body-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  /* 60% left, 40% right */
+  gap: 40px;
+}
+
+/* Left Column: Problem, Solution, About */
+.modal-prob-sol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.prob-box,
+.sol-box {
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid;
+}
+
+.prob-box {
+  background: #fff5f5;
+  border-color: #dc3545;
+  /* Red for problem */
+}
+
+.sol-box {
+  background: #f0fdf4;
+  border-color: #198754;
+  /* Green for solution */
+}
+
+.prob-box h4,
+.sol-box h4,
+.modal-description-text h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.prob-box p,
+.sol-box p {
+  margin: 0;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.modal-description-text p {
+  color: #444;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Right Column: Tech, Features, Links */
+.modal-side-col {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 16px;
+  height: fit-content;
+}
+
+.modal-technologies,
+.modal-features {
+  margin-bottom: 25px;
+}
+
+.modal-technologies h4,
+.modal-features h4 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #888;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.feature-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* Action Buttons */
+.modal-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-btn {
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.modal-btn.github {
+  background: #000;
+  color: #fff;
+}
+
+.modal-btn.demo {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.modal-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #f0f0f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: #e0e0e0;
+}
+
+.modal-close i {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .modal-body-grid {
+    grid-template-columns: 1fr;
+    /* Stack columns on mobile */
+  }
+
+  .modal-container {
+    width: 95%;
+  }
+
+  .modal-top-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .modal-bottom-image {
+    max-width: 100%;
+    margin: 20px auto 0;
+  }
+}
+
+
+#hero {
+  margin-top: -50px;
 }
