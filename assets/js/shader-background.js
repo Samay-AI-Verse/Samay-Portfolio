@@ -9,6 +9,14 @@
   let canvas, gl, program;
   let startTime = Date.now();
   let animationId;
+  let lastFrameTime = 0;
+  const targetFPS = isMobile() ? 30 : 60; // Lower FPS on mobile
+  const frameInterval = 1000 / targetFPS;
+
+  // Detect mobile devices
+  function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+  }
 
   // Vertex shader - simple pass-through
   const vertexShaderSource = `
@@ -185,12 +193,21 @@
   }
 
   function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    // Use lower resolution on mobile for better performance
+    const scale = isMobile() ? 0.5 : 1.0;
+    canvas.width = window.innerWidth * scale;
+    canvas.height = window.innerHeight * scale;
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
 
-  function render() {
+  function render(timestamp) {
+    // Throttle frame rate
+    if (timestamp - lastFrameTime < frameInterval) {
+      animationId = requestAnimationFrame(render);
+      return;
+    }
+    lastFrameTime = timestamp;
+
     const currentTime = (Date.now() - startTime) / 1000.0;
 
     gl.useProgram(program);

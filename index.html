@@ -11,6 +11,7 @@
   <!-- Favicons -->
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
@@ -30,8 +31,10 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- Font Awesome for Contact Form Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Font Awesome for Contact Form Icons - Defer loading -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print"
+    onload="this.media='all'">
 
   <!-- Enhanced Contact Section Styles -->
   <style>
@@ -409,6 +412,25 @@
       color: #e87532;
     }
 
+    /* Mobile optimizations for download buttons */
+    @media (max-width: 576px) {
+      .download-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.85rem;
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .download-btn span {
+        font-size: 0.85rem;
+      }
+
+      .download-buttons-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
 
 
     /* --- Add to the bottom of assets/css/main.css --- */
@@ -586,6 +608,39 @@
 </head>
 
 <body class="index-page">
+  <!-- Loading Screen -->
+  <div id="loading-screen"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 9999; display: flex; align-items: center; justify-content: center;">
+    <div style="text-align: center;">
+      <div
+        style="border: 4px solid #f3f3f3; border-top: 4px solid #e87532; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 0 auto;">
+      </div>
+      <p style="margin-top: 20px; color: #333; font-size: 16px;">Loading...</p>
+    </div>
+  </div>
+  <style>
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  <script>
+    // Hide loading screen when page is ready
+    window.addEventListener('load', function () {
+      const loadingScreen = document.getElementById('loading-screen');
+      loadingScreen.style.opacity = '0';
+      loadingScreen.style.transition = 'opacity 0.5s ease';
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 500);
+    });
+  </script>
+
   <header id="header" class="header d-flex align-items-center sticky-top">
 
     <div
@@ -725,20 +780,21 @@
         <div class="row mt-4" data-aos="fade-up">
           <div class="col-12">
             <div class="resume-download-section text-center">
-              <h5 class="mb-3" style="color: #000000; font-weight: 600; font-size: 1.1rem;">Download Documents</h5>
+              <h5 class="mb-3" style="color: #000000; font-weight: 600; font-size: 1.1rem;">Download My Resume</h5>
               <div class="download-buttons-wrapper">
 
-                <!-- Resume Button -->
-                <a href="/assets/pdf/samay.pdf" download="Samay_Powade_Resume.pdf" class="download-btn">
+                <!-- AI Engineer Resume Button -->
+                <a href="assets/pdf/Samay copy.pdf" download="Samay_Powade_AI_Engineer_Resume.pdf" class="download-btn">
                   <i class="bi bi-file-earmark-text"></i>
-                  <span>Resume</span>
+                  <span>AI Engineer Resume</span>
                   <i class="bi bi-download"></i>
                 </a>
 
-                <!-- CV Button -->
-                <a href="/assets/pdf/samay.pdf" download="Samay_Powade_CV.pdf" class="download-btn">
-                  <i class="bi bi-file-earmark-person"></i>
-                  <span>Curriculum Vitae</span>
+                <!-- Full Stack Developer Resume Button -->
+                <a href="assets/pdf/Samay Full stack.pdf" download="Samay_Powade_FullStack_Developer_Resume.pdf"
+                  class="download-btn">
+                  <i class="bi bi-file-earmark-code"></i>
+                  <span>Full Stack Developer Resume</span>
                   <i class="bi bi-download"></i>
                 </a>
 
@@ -1058,8 +1114,8 @@
 
                   <!-- Certificate 1 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/1.png')">
-                      <img src="/assets/img/certifications/1.png" alt="Certificate 1" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/1.png')">
+                      <img src="assets/img/certifications/1.png" alt="Certificate 1" class="cert-thumbnail">
                     </div>
                   </div>
 
@@ -1070,63 +1126,63 @@
                     </div>
                   </div> -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/9.png')">
-                      <img src="/assets/img/certifications/9.png" alt="Certificate 9" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/9.png')">
+                      <img src="assets/img/certifications/9.png" alt="Certificate 9" class="cert-thumbnail">
                     </div>
                   </div>
 
                   <!-- Certificate 10 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/10.png')">
-                      <img src="/assets/img/certifications/10.png" alt="Certificate 10" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/10.png')">
+                      <img src="assets/img/certifications/10.png" alt="Certificate 10" class="cert-thumbnail">
                     </div>
                   </div>
 
                   <!-- Certificate 11 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/11.png')">
-                      <img src="/assets/img/certifications/11.png" alt="Certificate 11" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/11.png')">
+                      <img src="assets/img/certifications/11.png" alt="Certificate 11" class="cert-thumbnail">
                     </div>
                   </div>
                   <!-- Certificate 3 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/3.png')">
-                      <img src="/assets/img/certifications/3.png" alt="Certificate 3" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/3.png')">
+                      <img src="assets/img/certifications/3.png" alt="Certificate 3" class="cert-thumbnail">
                     </div>
                   </div>
 
                   <!-- Certificate 4 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/4.png')">
-                      <img src="/assets/img/certifications/4.png" alt="Certificate 4" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/4.png')">
+                      <img src="assets/img/certifications/4.png" alt="Certificate 4" class="cert-thumbnail">
                     </div>
                   </div>
 
                   <!-- Certificate 5 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/5.png')">
-                      <img src="/assets/img/certifications/5.png" alt="Certificate 5" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/5.png')">
+                      <img src="assets/img/certifications/5.png" alt="Certificate 5" class="cert-thumbnail">
                     </div>
                   </div>
 
                   <!-- Certificate 6 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/6.png')">
-                      <img src="/assets/img/certifications/6.png" alt="Certificate 6" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/6.png')">
+                      <img src="assets/img/certifications/6.png" alt="Certificate 6" class="cert-thumbnail">
                     </div>
                   </div>
 
                   <!-- Certificate 7 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/7.png')">
-                      <img src="/assets/img/certifications/7.png" alt="Certificate 7" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/7.png')">
+                      <img src="assets/img/certifications/7.png" alt="Certificate 7" class="cert-thumbnail">
                     </div>
                   </div>
 
                   <!-- Certificate 8 -->
                   <div class="col-6 col-md-4 col-lg-3">
-                    <div class="certification-card-img" onclick="openModal('/assets/img/certifications/8.png')">
-                      <img src="/assets/img/certifications/8.png" alt="Certificate 8" class="cert-thumbnail">
+                    <div class="certification-card-img" onclick="openModal('assets/img/certifications/8.png')">
+                      <img src="assets/img/certifications/8.png" alt="Certificate 8" class="cert-thumbnail">
                     </div>
                   </div>
 
@@ -1431,14 +1487,14 @@
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short" style="color: #000000;"></i></a>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js" defer></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/shader-background.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js" defer></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <script src="assets/js/shader-background.js" defer></script>
   <script src="assets/js/projects-modal.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
