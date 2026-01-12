@@ -3881,6 +3881,12 @@ body::before {
     max-width: 100%;
     margin: 20px auto 0;
   }
+
+  .col-lg-7 {
+    margin-top: 50px;
+  }
+
+
 }
 
 
