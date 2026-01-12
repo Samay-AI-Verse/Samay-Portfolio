@@ -3293,36 +3293,302 @@ body::before {
   transform: scale(1.1);
 }
 
-/* Responsive Design */
+/* ============================================================== 
+   ENHANCED MOBILE RESPONSIVE DESIGN - PORTFOLIO & MODALS
+   ============================================================== */
+
+/* Mobile: Portfolio Cards Optimization */
 @media (max-width: 768px) {
+
+  /* Portfolio Cards - Better spacing and layout */
+  .portfolio-card {
+    margin-bottom: 25px !important;
+    padding: 20px !important;
+  }
+
+  .portfolio-card .category {
+    font-size: 0.75rem !important;
+    padding: 5px 12px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .portfolio-card h3 {
+    font-size: 1.3rem !important;
+    margin-bottom: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  .portfolio-card p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  .portfolio-image {
+    width: 180px !important;
+    margin: 15px auto !important;
+  }
+
+  /* Modal Container - Full screen on mobile */
+  .modal-container {
+    max-width: 100% !important;
+    max-height: 100vh !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    height: 100vh !important;
+  }
+
+  #projectModal {
+    padding: 0 !important;
+    align-items: flex-start !important;
+  }
+
+  /* Modal Content - Better padding and spacing */
   #modalProjectContent {
-    padding: 25px;
+    padding: 20px 18px !important;
+    padding-top: 60px !important;
+    /* Space for close button */
+  }
+
+  /* Modal Close Button - Larger and easier to tap */
+  .modal-close {
+    top: 12px !important;
+    right: 12px !important;
+    width: 44px !important;
+    height: 44px !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+    border: 2px solid rgba(0, 0, 0, 0.3) !important;
+    z-index: 100 !important;
+  }
+
+  .modal-close i {
+    font-size: 22px !important;
+  }
+
+  /* Modal Header - Larger, more readable */
+  .modal-category {
+    font-size: 0.8rem !important;
+    padding: 8px 16px !important;
+    margin-bottom: 15px !important;
+    display: inline-block !important;
   }
 
   .modal-title {
-    font-size: 1.6rem;
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+    margin: 12px 0 !important;
+    font-weight: 700 !important;
   }
 
   .modal-tagline {
-    font-size: 1rem;
+    font-size: 1.05rem !important;
+    line-height: 1.5 !important;
+    margin-top: 10px !important;
+    color: #555555 !important;
   }
 
+  /* Section Headings - Larger and bolder */
+  .modal-description h4,
+  .modal-features h4,
+  .modal-technologies h4,
+  .modal-screenshots h4 {
+    font-size: 1.4rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 18px !important;
+    margin-top: 25px !important;
+    color: #000000 !important;
+  }
+
+  /* Description Text - Larger and more readable */
+  .modal-description p {
+    font-size: 1.05rem !important;
+    line-height: 1.8 !important;
+    color: #333333 !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* Features List - Better spacing and larger text */
+  .modal-features li {
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+    padding: 15px 0 !important;
+    padding-left: 35px !important;
+    color: #333333 !important;
+  }
+
+  .modal-features li:before {
+    font-size: 1.3rem !important;
+    left: 5px !important;
+  }
+
+  /* Technology Tags - Larger and more touchable */
+  .tech-tag {
+    font-size: 0.95rem !important;
+    padding: 10px 18px !important;
+    margin: 5px !important;
+  }
+
+  /* Action Buttons - Full width and larger */
   .modal-actions {
-    flex-direction: column;
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin-top: 35px !important;
   }
 
   .modal-btn {
-    width: 100%;
-    justify-content: center;
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 16px 28px !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
   }
 
-  .modal-close {
-    top: 15px;
-    right: 15px;
-    width: 35px;
-    height: 35px;
+  .modal-btn i {
+    font-size: 1.3rem !important;
+  }
+
+  /* Screenshots - Single column on mobile */
+  .screenshots-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  .screenshot-item {
+    aspect-ratio: 16/10 !important;
   }
 }
+
+/* Extra Small Devices (phones in portrait) */
+@media (max-width: 576px) {
+  #modalProjectContent {
+    padding: 18px 15px !important;
+    padding-top: 65px !important;
+  }
+
+  .modal-title {
+    font-size: 1.6rem !important;
+  }
+
+  .modal-description h4,
+  .modal-features h4,
+  .modal-technologies h4,
+  .modal-screenshots h4 {
+    font-size: 1.3rem !important;
+  }
+
+  .modal-description p,
+  .modal-features li {
+    font-size: 1rem !important;
+  }
+
+  .tech-tag {
+    font-size: 0.9rem !important;
+    padding: 9px 16px !important;
+  }
+}
+
+/* ============================================================== 
+   PROBLEM/SOLUTION BOXES - MOBILE OPTIMIZATION
+   ============================================================== */
+
+@media (max-width: 768px) {
+
+  /* Problem Statement Box */
+  .problem-box,
+  .solution-box {
+    padding: 20px 18px !important;
+    margin: 20px 0 !important;
+    border-radius: 12px !important;
+  }
+
+  .problem-box h5,
+  .solution-box h5 {
+    font-size: 1.2rem !important;
+    margin-bottom: 12px !important;
+    font-weight: 700 !important;
+  }
+
+  .problem-box p,
+  .solution-box p {
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+  }
+
+  .problem-box i,
+  .solution-box i {
+    font-size: 1.3rem !important;
+  }
+}
+
+/* ============================================================== 
+   CREATIVE ENHANCEMENTS FOR MOBILE
+   ============================================================== */
+
+@media (max-width: 768px) {
+
+  /* Add smooth scroll behavior */
+  .modal-container {
+    scroll-behavior: smooth !important;
+  }
+
+  /* Better visual hierarchy with subtle shadows */
+  .modal-header {
+    padding-bottom: 20px !important;
+    border-bottom: 2px solid rgba(232, 117, 50, 0.1) !important;
+    margin-bottom: 25px !important;
+  }
+
+  /* Improve readability with better contrast */
+  .modal-description,
+  .modal-features,
+  .modal-technologies {
+    background: rgba(255, 255, 255, 0.5) !important;
+    padding: 18px !important;
+    border-radius: 12px !important;
+    margin: 20px 0 !important;
+    border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  }
+
+  /* Add subtle animation to sections */
+  .modal-description h4,
+  .modal-features h4,
+  .modal-technologies h4 {
+    position: relative !important;
+    padding-left: 15px !important;
+  }
+
+  .modal-description h4:before,
+  .modal-features h4:before,
+  .modal-technologies h4:before {
+    content: '' !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 4px !important;
+    height: 60% !important;
+    background: linear-gradient(to bottom, #e87532, #ff9d5c) !important;
+    border-radius: 2px !important;
+  }
+
+  /* Better spacing between sections */
+  .modal-screenshots,
+  .modal-description,
+  .modal-features,
+  .modal-technologies {
+    margin-top: 30px !important;
+  }
+
+  /* Improve touch targets */
+  .screenshot-item {
+    min-height: 180px !important;
+  }
+
+  /* Better visual feedback for buttons */
+  .modal-btn:active {
+    transform: scale(0.98) !important;
+  }
+}
+
 
 /* Scrollbar Styling for Modal */
 .modal-container::-webkit-scrollbar {

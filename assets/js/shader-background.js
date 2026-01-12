@@ -227,12 +227,27 @@
     animationId = requestAnimationFrame(render);
   }
 
-  // Initialize on load
-  window.addEventListener('load', function () {
-    if (initWebGL()) {
-      render();
+  // Initialize on DOMContentLoaded for faster startup
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      try {
+        if (initWebGL()) {
+          render();
+        }
+      } catch (e) {
+        console.error('Shader background error:', e);
+      }
+    });
+  } else {
+    // DOM already loaded
+    try {
+      if (initWebGL()) {
+        render();
+      }
+    } catch (e) {
+      console.error('Shader background error:', e);
     }
-  });
+  }
 
   // Cleanup
   window.addEventListener('beforeunload', function () {

@@ -630,15 +630,35 @@
     }
   </style>
   <script>
-    // Hide loading screen when page is ready
-    window.addEventListener('load', function () {
-      const loadingScreen = document.getElementById('loading-screen');
-      loadingScreen.style.opacity = '0';
-      loadingScreen.style.transition = 'opacity 0.5s ease';
-      setTimeout(() => {
-        loadingScreen.style.display = 'none';
-      }, 500);
-    });
+    // Hide loading screen when page is ready - with multiple fallbacks
+    (function () {
+      let loadingHidden = false;
+
+      function hideLoadingScreen() {
+        if (loadingHidden) return;
+        loadingHidden = true;
+
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.style.opacity = '0';
+          loadingScreen.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 500);
+        }
+      }
+
+      // Hide on DOMContentLoaded (fires earlier than 'load')
+      document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(hideLoadingScreen, 300);
+      });
+
+      // Hide on full page load
+      window.addEventListener('load', hideLoadingScreen);
+
+      // Fallback: Force hide after 3 seconds maximum
+      setTimeout(hideLoadingScreen, 3000);
+    })();
   </script>
 
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -656,7 +676,7 @@
         <ul>
           <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#resume">Resume</a></li>
+          <li><a href="#resume-01">Resume</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li class="dropdown"><a href="#portfolio"><span>Projects</span> </a>
             <!-- <ul>
@@ -776,8 +796,25 @@
           </div>
         </div>
 
-        <!-- Resume/CV Download Section -->
-        <div class="row mt-4" data-aos="fade-up">
+      </div>
+
+    </section>
+
+    <!-- Resume Download Section -->
+    <section id="resume-01" class="resume section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <div class="title-shape">
+          <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor"
+              stroke-width="2"></path>
+          </svg>
+        </div>
+        <p>Download my professional resume tailored for different roles.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+        <div class="row">
           <div class="col-12">
             <div class="resume-download-section text-center">
               <h5 class="mb-3" style="color: #000000; font-weight: 600; font-size: 1.1rem;">Download My Resume</h5>
@@ -802,10 +839,10 @@
             </div>
           </div>
         </div>
-
       </div>
 
     </section>
+
     <section id="skills" class="skills section">
 
       <div class="container section-title" data-aos="fade-up">
