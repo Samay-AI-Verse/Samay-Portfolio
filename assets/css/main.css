@@ -4009,12 +4009,28 @@ body::before {
     font-size: 1.05rem;
 }
 
-/* Right Column: Tech, Features, Links */
+/* Right Column: Image, Tech, Features, Links */
 .modal-side-col {
     background: #f9f9f9;
     padding: 25px;
     border-radius: 16px;
     height: fit-content;
+}
+
+/* Side Image in Right Column */
+.modal-side-image {
+    width: 100%;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.modal-side-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 .modal-technologies,
@@ -4143,9 +4159,9 @@ body::before {
         font-size: 1.8rem;
     }
 
-    .modal-bottom-image {
+    .modal-side-image {
         max-width: 100%;
-        margin: 20px auto 0;
+        margin: 0 0 20px 0;
     }
 
     .col-lg-7 {
@@ -4158,4 +4174,13 @@ body::before {
 
 #hero {
     margin-top: -50px;
+}
+
+
+
+/* Hide the about-image on mobile devices */
+@media (max-width: 768px) {
+    .about-image {
+        display: none !important;
+    }
 }

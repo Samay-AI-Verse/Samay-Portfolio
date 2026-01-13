@@ -246,11 +246,11 @@ function openProjectModal(projectId) {
     `;
   }
 
-  // Build Image HTML (Smaller, for bottom)
+  // Build Image HTML (For right sidebar)
   let imageHTML = '';
   if (project.screenshots && project.screenshots.length > 0) {
     imageHTML = `
-      <div class="modal-bottom-image">
+      <div class="modal-side-image">
         <img src="${project.screenshots[0]}" alt="${project.title}">
       </div>
     `;
@@ -266,7 +266,7 @@ function openProjectModal(projectId) {
   }
   linksHTML += '</div>';
 
-  // Assemble Content - Image moved to bottom
+  // Assemble Content - Image moved to right sidebar
   modalContent.innerHTML = `
     <div class="modal-top-header">
        <span class="modal-badge">${project.category}</span>
@@ -283,13 +283,12 @@ function openProjectModal(projectId) {
           </div>
        </div>
        <div class="modal-side-col">
+          ${imageHTML}
           ${technologiesHTML}
           ${featuresHTML}
           ${linksHTML}
        </div>
     </div>
-
-    ${imageHTML}
   `;
 
   modal.classList.add('active');
