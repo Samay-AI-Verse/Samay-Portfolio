@@ -10,22 +10,14 @@
 
   <!-- Favicons -->
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
-  <!-- Preload Critical Resources -->
-  <link rel="preload" href="assets/css/main.css" as="style">
-  <link rel="preload" href="assets/vendor/bootstrap/css/bootstrap.min.css" as="style">
-  <link rel="preload" href="assets/img/person/new one photo.png" as="image" fetchpriority="high">
-
-  <!-- Defer non-critical CSS -->
-  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    media="print" onload="this.media='all'" />
-
-  <!-- Fonts - Optimized Loading -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&family=Questrial:wght@400&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,7 +26,7 @@
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@600&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'">
+    rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -43,15 +35,6 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" media="print"
     onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans:wght@400;500;600;700&family=Questrial:wght@400&display=swap"
-      rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@600&display=swap"
-      rel="stylesheet">
-  </noscript>
 
   <!-- Enhanced Contact Section Styles -->
   <style>
@@ -673,23 +656,23 @@
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) {
           loadingScreen.style.opacity = '0';
-          loadingScreen.style.transition = 'opacity 0.3s ease';
+          loadingScreen.style.transition = 'opacity 0.5s ease';
           setTimeout(() => {
             loadingScreen.style.display = 'none';
-          }, 300);
+          }, 500);
         }
       }
 
       // Hide on DOMContentLoaded (fires earlier than 'load')
       document.addEventListener('DOMContentLoaded', function () {
-        setTimeout(hideLoadingScreen, 100);
+        setTimeout(hideLoadingScreen, 300);
       });
 
       // Hide on full page load
       window.addEventListener('load', hideLoadingScreen);
 
-      // Fallback: Force hide after 1.5 seconds maximum
-      setTimeout(hideLoadingScreen, 1500);
+      // Fallback: Force hide after 3 seconds maximum
+      setTimeout(hideLoadingScreen, 3000);
     })();
   </script>
 
@@ -757,8 +740,7 @@
           </div>
           <div class="col-lg-5" data-aos="fade-up">
             <div class="hero-image">
-              <img src="assets/img/person/new one photo.png" alt="Samay Powade" class="img-fluid rounded-4"
-                fetchpriority="high">
+              <img src="assets/img/person/new one photo.png" alt="Samay Powade" class="img-fluid rounded-4">
             </div>
           </div>
         </div>
@@ -780,10 +762,10 @@
       </div>
       <div class="container" data-aos="fade-up">
 
-        <div class="row align-items-center">
+        <div class="row align-items-cyyenter">
           <div class="col-lg-5 position-relative" data-aos="fade-right">
             <div class="about-image">
-              <img src="assets/img/person/samay.png" alt="Samay Powade" class="img-fluid rounded-4" loading="lazy">
+              <img src="assets/img/person/image2.png" alt="Samay Powade" class="img-fluid rounded-4">
             </div>
           </div>
 
@@ -997,7 +979,7 @@
 
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
-                  <img src="assets/img/portfolio/chetanalabs.png" class="img-fluid" alt="ChetanaLabs" loading="lazy"
+                  <img src="assets/img/portfolio/chetanalabs.png" class="img-fluid" alt="ChetanaLabs"
                     style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
@@ -1016,7 +998,7 @@
 
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
-                  <img src="assets/img/portfolio/sarathi_astra.png" class="img-fluid" alt="Sarathi Astra" loading="lazy"
+                  <img src="assets/img/portfolio/sarathi_astra.png" class="img-fluid" alt="Sarathi Astra"
                     style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
@@ -1036,7 +1018,7 @@
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
                   <img src="assets/img/portfolio/trinetra_drone.png" class="img-fluid" alt="Trinetra Drone"
-                    loading="lazy" style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
               </div>
@@ -1054,7 +1036,7 @@
 
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
-                  <img src="assets/img/portfolio/dream_weaver.png" class="img-fluid" alt="Dream Weaver" loading="lazy"
+                  <img src="assets/img/portfolio/dream_weaver.png" class="img-fluid" alt="Dream Weaver"
                     style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
@@ -1074,7 +1056,7 @@
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
                   <img src="assets/img/portfolio/womens_safety_ai.png" class="img-fluid" alt="Shakti AI Chatbot"
-                    loading="lazy" style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
               </div>
@@ -1093,7 +1075,7 @@
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
                   <img src="assets/img/projects/coldemail.png" class="img-fluid" alt="Cold Email Generator"
-                    loading="lazy" style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
               </div>
@@ -1111,7 +1093,7 @@
 
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
-                  <img src="assets/img/projects/Hotel.png" class="img-fluid" alt="Hotel Booking Analysis" loading="lazy"
+                  <img src="assets/img/projects/Hotel.png" class="img-fluid" alt="Hotel Booking Analysis"
                     style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
@@ -1131,7 +1113,7 @@
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
                   <img src="assets/img/projects/movie.png" class="img-fluid" alt="Movie Recommendation System"
-                    loading="lazy" style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
               </div>
@@ -1150,7 +1132,7 @@
                 <div class="portfolio-image mt-auto mx-auto mb-4"
                   style="width: 220px; aspect-ratio: auto; background: transparent; box-shadow: none; border-radius: 10px;">
                   <img src="assets/img/projects/loan_prediction.png" class="img-fluid" alt="Loan Prediction System"
-                    loading="lazy" style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
+                    style="width: 100%; height: auto; object-fit: contain; border-radius: 10px;">
                 </div>
 
               </div>
