@@ -220,6 +220,45 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+
+  // Scroll-based image movement from left to right
+  window.addEventListener('scroll', function () {
+    const scrollImage = document.getElementById('scrollImage');
+    if (!scrollImage) return;
+
+    // Get the hero and about section positions
+    const heroSection = document.getElementById('hero');
+    const aboutSection = document.getElementById('about');
+
+    if (!heroSection || !aboutSection) return;
+
+    // Calculate scroll progress between hero and about sections
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+    const aboutTop = aboutSection.offsetTop;
+    const scrollY = window.scrollY;
+
+    // Calculate the progress (0 to 1) as user scrolls from hero to about
+    const scrollRange = aboutTop - heroBottom;
+    const scrollProgress = Math.max(0, Math.min(1, (scrollY - heroBottom) / scrollRange));
+
+    // Move image from left (-100px) to right (0px) based on scroll progress
+    // Adjust these values to control the movement range
+    const startPosition = -150; // Start position (left)
+    const endPosition = 0;      // End position (center/right)
+    const horizontalMove = startPosition + (scrollProgress * (endPosition - startPosition));
+
+    // Optional: Add slight vertical movement for more dynamic effect
+    const verticalMove = scrollProgress * 20;
+
+    // Apply the transformation
+    scrollImage.style.transform = `translate(${horizontalMove}px, ${verticalMove}px)`;
+
+    // Fade in as it moves into view
+    const opacity = 0.3 + (scrollProgress * 0.7); // Fade from 0.3 to 1
+    scrollImage.style.opacity = opacity;
+  });
+
+
 })();
 
 

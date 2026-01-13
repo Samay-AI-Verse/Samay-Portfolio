@@ -37,588 +37,7 @@
     onload="this.media='all'">
 
   <!-- Enhanced Contact Section Styles -->
-  <style>
-    /* Contact Section Glassmorphism Styles */
-    .contact-enhanced {
-      min-height: 100vh;
-      width: 100%;
-      background-color: transparent;
-      color: #d4d4d4;
-    }
 
-    .inner-contact {
-      margin: 0 auto;
-      height: 100%;
-      max-width: 1200px;
-      position: relative;
-      padding: 60px 20px;
-    }
-
-    .contact-enhanced .header {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 4rem 1rem 4rem;
-      text-align: center;
-    }
-
-    .contact-enhanced .header h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(to bottom, #000000, #4a4a4a);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .contact-enhanced .header p {
-      color: #666666;
-      font-size: 1.1rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .border-separator {
-      position: relative;
-      left: 0;
-      right: 0;
-      height: 1px;
-      width: 100%;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      margin: 2rem 0;
-    }
-
-    .contact-enhanced .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      padding-top: 24px;
-    }
-
-    @media (min-width: 768px) {
-      .inner-contact {
-        padding: 80px 40px;
-      }
-
-      .contact-enhanced .header h1 {
-        font-size: 3rem;
-      }
-
-      .contact-enhanced .grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .contact-enhanced .box {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-enhanced .box:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0, 0, 0, 0.2);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .box-header {
-      background: rgba(255, 255, 255, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 1rem;
-    }
-
-    .box-header .fa-solid,
-    .box-header .fa-brands {
-      width: 1.25rem;
-      height: 1.25rem;
-      color: #666666;
-      font-weight: 100;
-    }
-
-    .box-header h2 {
-      font-size: 1.125rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: #000000;
-    }
-
-    .box-content {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 3rem 1rem;
-      min-height: 100px;
-    }
-
-    .box-footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .box-footer p {
-      color: #666666;
-      font-size: 0.875rem;
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    .box-footer a {
-      color: #000000 !important;
-    }
-
-    .contact-link {
-      font-family: "Courier New", monospace;
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      color: #000000;
-      text-decoration: none;
-      line-height: 1.6;
-    }
-
-    .contact-link:hover {
-      text-decoration: underline;
-      color: #333333;
-    }
-
-    .phone-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .phone-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .copy-button {
-      width: 2rem;
-      height: 2rem;
-      background: transparent;
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      color: #666666;
-      cursor: pointer;
-      border-radius: 6px;
-      padding: 0.25rem;
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .copy-button:hover:not(:disabled) {
-      background: rgba(0, 0, 0, 0.05);
-      color: #000000;
-      border-color: rgba(0, 0, 0, 0.3);
-    }
-
-    .copy-button:disabled {
-      opacity: 1;
-    }
-
-    .copy-icon,
-    .check-icon {
-      width: 0.875rem;
-      height: 0.875rem;
-      transition: all 0.2s;
-    }
-
-    .check-icon {
-      position: absolute;
-      color: #28a745;
-    }
-
-    .copy-button .check-icon {
-      transform: scale(0);
-      opacity: 0;
-    }
-
-    .copy-button.copied .check-icon {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    .copy-button.copied .copy-icon {
-      transform: scale(0);
-      opacity: 0;
-    }
-
-    .social-section {
-      position: relative;
-      display: flex;
-      height: 100%;
-      min-height: 20rem;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 0;
-    }
-
-    .social-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-    }
-
-    .social-content h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      color: #000000;
-    }
-
-    @media (min-width: 768px) {
-      .social-content h2 {
-        font-size: 2.25rem;
-      }
-    }
-
-    .social-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .social-link {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: 9999px;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      color: #000000;
-      transition: background-color 0.2s, color 0.2s, transform 0.2s;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .social-link:hover {
-      background: rgba(0, 0, 0, 0.05);
-      color: #000000;
-      transform: translateY(-2px);
-    }
-
-    .social-link .fa-brands {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    .social-link span {
-      font-family: "Courier New", monospace;
-      font-size: 0.875rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-    }
-
-    /* Certificate Thumbnail Styles */
-    .certification-card-img {
-      cursor: pointer;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      background: #fff;
-    }
-
-    /* Certificate Information Cards - Text Only */
-    .cert-info-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      height: 100%;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .cert-info-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(232, 117, 50, 0.2);
-      border-color: rgba(232, 117, 50, 0.3);
-    }
-
-    .cert-header {
-      margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .cert-header h4 {
-      color: #000000;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .cert-issuer {
-      color: #e87532;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: block;
-    }
-
-    .cert-body {
-      color: #333333;
-    }
-
-    .cert-body p {
-      margin-bottom: 0.75rem;
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .cert-body i {
-      color: #e87532;
-      font-size: 1rem;
-    }
-
-    .cert-date,
-    .cert-duration,
-    .cert-code {
-      font-weight: 500;
-    }
-
-    .cert-description {
-      color: #555555;
-      font-size: 0.85rem;
-      line-height: 1.5;
-      margin-top: 0.5rem;
-    }
-
-    .cert-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    .skill-badge {
-      background: linear-gradient(135deg, #e87532 0%, #ff9966 100%);
-      color: #ffffff;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      display: inline-block;
-      box-shadow: 0 2px 8px rgba(232, 117, 50, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .skill-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(232, 117, 50, 0.4);
-    }
-
-    /* Responsive adjustments for certificates */
-    @media (max-width: 768px) {
-      .cert-info-card {
-        padding: 1.25rem;
-      }
-
-      .cert-header h4 {
-        font-size: 1rem;
-      }
-
-      .cert-body p {
-        font-size: 0.85rem;
-      }
-
-      .skill-badge {
-        font-size: 0.7rem;
-        padding: 0.35rem 0.7rem;
-      }
-    }
-
-    /* Resume/CV Download Section Styles - Compact Design */
-    .resume-download-section {
-      padding: 1rem 0;
-    }
-
-    .download-buttons-wrapper {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .download-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1.5px solid rgba(255, 255, 255, 0.5);
-      border-radius: 50px;
-      padding: 0.65rem 1.25rem;
-      text-decoration: none;
-      color: #000000;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .download-btn i:first-child {
-      font-size: 1.1rem;
-      color: #e87532;
-    }
-
-    .download-btn i:last-child {
-      font-size: 0.9rem;
-      color: #666666;
-    }
-
-    .download-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-      background: rgba(255, 255, 255, 0.5);
-      border-color: rgba(232, 117, 50, 0.6);
-      color: #000000;
-    }
-
-    .download-btn:hover i:first-child {
-      color: #e87532;
-      transform: scale(1.1);
-    }
-
-    .download-btn:hover i:last-child {
-      color: #e87532;
-    }
-
-    /* Mobile optimizations for download buttons */
-    @media (max-width: 576px) {
-      .download-btn {
-        padding: 0.75rem 1rem;
-        font-size: 0.85rem;
-        width: 100%;
-        max-width: 280px;
-      }
-
-      .download-btn span {
-        font-size: 0.85rem;
-      }
-
-      .download-buttons-wrapper {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-
-
-
-    /* --- Add to the bottom of assets/css/main.css --- */
-
-    /* Wrapper to hold Text and Image side-by-side */
-    .education-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-    }
-
-    /* Ensure text takes up available space */
-    .education-text {
-      flex: 1;
-    }
-
-    /* Mark Sheet Thumbnail Container */
-    .education-img {
-      flex-shrink: 0;
-      width: 150px;
-      /* Adjust size as needed */
-      height: auto;
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .education-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    /* Hover Effect */
-    .education-img:hover {
-      transform: scale(1.05);
-    }
-
-    .education-img:hover img {
-      transform: scale(1.1);
-    }
-
-    /* "View" Overlay on Hover */
-    .education-img::after {
-      content: '\F338';
-      /* Bootstrap Icon Eye Code */
-      font-family: "bootstrap-icons";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.5rem;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .education-img:hover::after {
-      opacity: 1;
-    }
-
-    /* Mobile Responsiveness: Stack them vertically on small screens */
-    @media (max-width: 576px) {
-      .education-content {
-        flex-direction: column;
-      }
-
-      .education-img {
-        width: 100%;
-        height: 150px;
-        /* Taller on mobile */
-        margin-top: 10px;
-      }
-    }
-
-    /* Add this to main.css if you want extra vertical breathing room on mobile */
-    .portfolio-card {
-      margin-bottom: 20px;
-      /* Ensures gap on mobile when they stack */
-    }
-  </style>
 
 </head>
 
@@ -764,8 +183,9 @@
 
         <div class="row align-items-cyyenter">
           <div class="col-lg-5 position-relative" data-aos="fade-right">
-            <div class="about-image">
-              <img src="assets/img/person/image2.png" alt="Samay Powade" class="img-fluid rounded-4">
+            <div class="scroll-image-container">
+              <img src="assets/img/person/new one photo.png" alt="Samay Powade" class="scroll-moving-image"
+                id="scrollImage">
             </div>
           </div>
 
@@ -1245,25 +665,31 @@
 
                 <div class="timeline">
 
+
                   <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-left">
-                      <h4 class="company">Maharashtra State Board</h4>
-                      <span class="period">2018-2021</span>
+                      <h4 class="company">DBATU</h4>
+                      <span class="period">2024-2027</span>
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
 
                       <div class="education-content">
                         <div class="education-text">
-                          <h3 class="position">Secondary School Certificate (SSC)</h3>
-                          <p class="description">Completed foundational education with strong knowledge in Mathematics,
-                            Science, and English, providing a solid academic base for further studies.</p>
+                          <h3 class="position">B-Tech In Computer Engineering (Pursuing)</h3>
+                          <p class="description">Focused on advanced computer science concepts, including software
+                            development, algorithms, networking, and system architecture.</p>
                         </div>
 
+                        <!-- <div class="education-img" onclick="openModal('assets/img/education/btech-id.jpg')">
+                          <img src="assets/img/education/btech-id.jpg" alt="College Doc">
+                        </div> -->
                       </div>
 
                     </div>
                   </div>
+
+
 
                   <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-left">
@@ -1286,25 +712,21 @@
 
                     </div>
                   </div>
-
                   <div class="timeline-item" data-aos="fade-up">
                     <div class="timeline-left">
-                      <h4 class="company">DBATU</h4>
-                      <span class="period">2024-2027</span>
+                      <h4 class="company">Maharashtra State Board</h4>
+                      <span class="period">2018-2021</span>
                     </div>
                     <div class="timeline-dot"></div>
                     <div class="timeline-right">
 
                       <div class="education-content">
                         <div class="education-text">
-                          <h3 class="position">B-Tech In Computer Engineering (Pursuing)</h3>
-                          <p class="description">Focused on advanced computer science concepts, including software
-                            development, algorithms, networking, and system architecture.</p>
+                          <h3 class="position">Secondary School Certificate (SSC)</h3>
+                          <p class="description">Completed foundational education with strong knowledge in Mathematics,
+                            Science, and English, providing a solid academic base for further studies.</p>
                         </div>
 
-                        <!-- <div class="education-img" onclick="openModal('assets/img/education/btech-id.jpg')">
-                          <img src="assets/img/education/btech-id.jpg" alt="College Doc">
-                        </div> -->
                       </div>
 
                     </div>
