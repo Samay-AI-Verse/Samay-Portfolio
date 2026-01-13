@@ -4184,3 +4184,27 @@ body::before {
         display: none !important;
     }
 }
+
+
+/* Windows-style Transparent Blue Button for Mobile */
+@media (max-width: 768px) {
+    /* Target the specific "View My Work" button */
+    .hero .btn-get-started, 
+    .hero .btn-primary {
+        background: rgba(0, 120, 215, 0.2) !important; /* Light Windows blue with transparency */
+        backdrop-filter: blur(12px) saturate(150%);
+        -webkit-backdrop-filter: blur(12px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        font-weight: 500;
+        text-shadow: none;
+    }
+
+    .hero .btn-get-started:hover,
+    .hero .btn-primary:hover {
+        background: rgba(0, 120, 215, 0.3) !important;
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        transform: scale(1.02);
+    }
+}
