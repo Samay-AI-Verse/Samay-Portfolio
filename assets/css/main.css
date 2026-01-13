@@ -295,7 +295,9 @@ section,
 }
 
 .btn-primary {
-  background: rgba(232, 117, 50, 0.9) !important;
+  background: rgba(232, 117, 50, 0.25) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .btn-outline {
